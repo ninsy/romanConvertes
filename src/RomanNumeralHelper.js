@@ -13,10 +13,10 @@ function Converter() {
 };
 
 Converter.prototype.toRoman = function(decimalInput) {
-  for(let [key, value] of this.primordialMap) {
+  for(var [key, value] of this.primordialMap) {
     if(value == decimalInput) return key;
   };
-  for(let [key, value] of this.calculatedDigits) {
+  for(var [key, value] of this.calculatedDigits) {
     if(value == decimalInput) return key;
   }
   
@@ -34,14 +34,12 @@ Converter.prototype.fromRoman = function(romanInput) {
         return toReturn;
       }
       else {
-       var stringToArray = romanInput.split("");
-       console.log(stringToArray);
+        var stringToArray = romanInput.split("");
         var translatedSum = 0;
         var toBeOmmited = false;
       
         stringToArray.forEach((singleElement, index) => {
-           console.log("Index: " + index);
-    
+
           if(toBeOmmited) {
             toBeOmmited = false;
             return 0;
@@ -53,29 +51,23 @@ Converter.prototype.fromRoman = function(romanInput) {
             if(stringToArray[index+1]) {
               nextValue = this.fromRoman(stringToArray[index+1]);
             }
-            // console.log("PAIR: ");
-            // console.log(currentValue);
-            // console.log(nextValue);
-            // console.log("--");
             if(currentValue >= nextValue ) {
-              console.log("Adding: " + currentValue);
               translatedSum += currentValue;
             }
             else {
               var currentSum = nextValue - currentValue
               translatedSum += currentSum;
-              console.log("Adding: " + currentSum);
               toBeOmmited = true;
             }
           }
         });
-        console.log(translatedSum);        
+        return translatedSum;        
       }
   }
 };
 
 
-var x = new Converter();
-x.fromRoman("MCMXC");
-x.fromRoman("MMVIII");
-x.fromRoman("MDCLXVI");
+// var x = new Converter();
+// x.fromRoman("MCMXC");
+// x.fromRoman("MMVIII");
+// x.fromRoman("MDCLXVI");

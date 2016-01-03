@@ -4,10 +4,13 @@
   "description": "",
   "main": "src/romanNumeralHelper.js",
   "dependencies": {
+    "babel-preset-es2015": "^6.3.13",
     "jasmine": "^2.4.1",
     "jasmine-node": "^1.14.5"
   },
   "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
     "jasmine": "^2.4.1",
     "jasmine-es6": "^0.1.1",
     "jasmine-node": "^1.14.5"
